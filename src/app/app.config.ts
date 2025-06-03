@@ -2,7 +2,8 @@ import { ApplicationConfig } from '@angular/core';
 import {
   provideRouter,
   withEnabledBlockingInitialNavigation,
-  withRouterConfig
+  withRouterConfig,
+  withHashLocation
 } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -13,6 +14,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(
       routes,
+      withHashLocation(),
       withEnabledBlockingInitialNavigation(),
       withRouterConfig({
         onSameUrlNavigation: 'reload'   
