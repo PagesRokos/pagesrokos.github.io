@@ -1,0 +1,96 @@
+<footer class="footer">
+  <div class="footer-content split">
+    <div class="footer-left">
+      <div class="footer-logo">
+        <img src="assets/logob.png" alt="Logo Rokos Barber Club" />
+      </div>
+      <p class="footer-desc">&copy; 2025 Rokos Barber Club. 
+        Todos los derechos reservados.</p>
+    </div>
+    <div class="footer-right">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h5>Contacto</h5>
+          <ul>
+            <li>Teléfono Fijo: <a href="tel:+56432642219">+56 43 264 2219</a></li>
+            <li>Teléfono Celular: <a href="tel:+56982512970">+56 9 8251 2970</a></li>
+            <li>Email: <a href="mailto:rokosbarberia&#64;gmail.com">rokosbarberia&#64;gmail.com</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Informaciones</h5>
+          <ul>
+            <li><a href="#" (click)="openTerms($event)">Términos y Servicio</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Redes Sociales</h5>
+          <ul>
+            <li><a href="https://www.instagram.com/rokosbarberclub/#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.facebook.com/Rokosbarber" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.tiktok.com/@rokosbarberclub" target="_blank" rel="noopener noreferrer">Tiktok</a></li>            <li><a href="https://rokosbarberclub.site.agendapro.com/cl/sucursal/61199">Reserva tu hora</a></li>
+            <li><a href="https://api.whatsapp.com/send/?phone=56982512970&text=Hola%2C+quiero+reservar+una+hora+en+Rokos+Barber+Club.&type=phone_number&app_absent=0">Habla con nosotros</a></li>
+          </ul>
+          <div class="footer-actions">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="terms-modal" *ngIf="showTerms">
+    <div class="terms-modal-content">
+      <button class="close-btn" (click)="closeTerms()">&times;</button>      <h2>TÉRMINOS Y CONDICIONES ROKOS BARBER CLUB</h2>
+      <div class="terms-content">
+        <h3>1. Horario de Atención</h3>
+        <p>Nuestra barbería, ubicada en Concón, atiende de lunes a domingo entre las 10:00 y las 20:00 horas. La última hora disponible para agendar un servicio es a las 19:00 horas.</p>
+
+        <h3>2. Políticas de Reserva y Asistencia</h3>
+        <ul>
+          <li><strong>Tiempo de espera:</strong> El tiempo máximo de espera es de 10 minutos. Transcurrido este plazo, la reserva será anulada automáticamente. En caso de que el barbero pueda atenderlo después de ese tiempo, se le informará por los canales habituales de comunicación.</li>
+          <li><strong>Inasistencias:</strong> Tras dos inasistencias sin aviso, será obligatorio realizar el pago completo del servicio para confirmar futuras reservas.</li>
+          <li><strong>Cancelaciones:</strong> Deben realizarse con un mínimo de 2 horas de anticipación.</li>
+        </ul>
+
+        <h3>3. Reagendamientos y Pagos</h3>
+        <ul>
+          <li><strong>Reagendamientos:</strong> Las reservas pagadas total o parcialmente podrán reagendarse un máximo de dos veces.</li>
+          <li><strong>Pagos en línea:</strong> Los pagos realizados de forma online serán reembolsables únicamente si se justifica adecuadamente la solicitud, y hasta 2 horas antes del horario reservado.</li>
+        </ul>
+
+        <h3>4. Políticas de Reembolso</h3>
+        <p>Los reembolsos se gestionarán conforme a la política interna de la barbería y podrán tardar hasta 15 días hábiles desde la presentación del reclamo por parte del cliente.</p>
+
+        <h3>5. Modificación y Cancelación por parte del Establecimiento</h3>
+        <p>Rokos Barber Club se reserva el derecho de modificar o cancelar reservas por motivos operativos o circunstancias imprevistas.</p>
+
+        <h3>6. Responsabilidad</h3>
+        <p>La barbería no se hace responsable por pérdidas o daños ocurridos dentro del local.</p>
+
+        <h3>7. Política de Atención a Menores de Edad</h3>
+        <p>Por razones de seguridad e higiene, los menores de edad deben estar acompañados por un adulto responsable durante todo el servicio.</p>
+
+        <h3>8. Uso de Promociones y Descuentos</h3>
+        <p>Las promociones y descuentos no son acumulables entre sí, y estarán vigentes solo durante el período indicado. Rokos Barber Club se reserva el derecho de modificar o suspender promociones sin previo aviso.</p>
+
+        <h3>9. Métodos de Pago Aceptados</h3>
+        <p>Aceptamos pagos en efectivo, tarjetas de débito/crédito y transferencias electrónicas. El pago debe realizarse al finalizar el servicio, salvo cuando se haya cancelado online.</p>
+
+        <h3>10. Política de Satisfacción del Cliente</h3>
+        <p>Si no está satisfecho con el resultado del servicio, por favor comuníquese con nosotros dentro de las primeras 24 horas para evaluar una solución. No se realizarán ajustes o correcciones pasadas 24 horas.</p>
+
+        <h3>11. Consentimiento para Uso de Imagen</h3>
+        <p>Al acceder a nuestros servicios, usted autoriza el uso de imágenes y videos capturados dentro de nuestras instalaciones para fines promocionales, salvo que indique lo contrario por escrito antes del servicio.</p>
+
+        <div class="terms-footer">
+          <p>Al utilizar nuestros servicios, usted acepta y se compromete a cumplir con estos términos y condiciones.</p>
+          <p>Agradecemos su comprensión y colaboración para ofrecer la mejor experiencia a todos nuestros clientes.</p>
+          <br>
+          <p><strong>Rokos Barber Club</strong><br>
+          Concón, Chile<br>
+          Fecha de entrada en vigencia: Febrero 2023.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

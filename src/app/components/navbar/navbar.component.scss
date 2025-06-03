@@ -1,0 +1,91 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;  z-index: 1000;
+  background-color: #000;
+  padding: 1rem 2rem;
+  display: flex;  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .logo img {
+    height: 50px;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    transition: transform var(--transition);
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    a {
+      color: white;
+      text-decoration: none;
+      transition: color var(--transition);
+      text-transform: uppercase;
+
+      &:hover {
+        color: #c1b727;
+      }
+
+      &.reservar-btn {
+        background-color: #FFD600;
+        color: #222;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.3s, color 0.3s;        text-transform: uppercase;
+        padding: 0.5rem 1.0rem; // más grande
+        box-shadow: 0 4px 18px rgba(212, 180, 41, 0.25);
+        letter-spacing: 1.5px;
+
+        &:hover {
+          background-color: #D4B429;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: stretch; // esto permite que los hijos usen justify-content
+      position: relative;
+    }
+  
+    .menu-toggle {
+      display: block;
+      align-self: flex-end; // 👉 esto lo empuja hacia la derecha
+      margin-top: -2rem; // adjust mobile top margin for better spacing
+      margin-bottom: 1rem;
+    }
+  
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+  
+      a {
+        padding: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+      }
+  
+      &.active {
+        display: flex;
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,171 @@
+/* SECCIÓN SERVICIOS - ESTILO ROCKERO/BARBERO */
+.servicios-section {
+    background-color: #0a0a0a;
+    color: #fff;
+    padding: 5rem 2rem;    text-align: center;
+    background-image: 
+      linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)),
+      url('/assets/madera1.jpg');
+    background-position: center;
+    background-attachment: fixed;
+  
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: #fff;
+      margin-bottom: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      position: relative;
+      display: inline-block;
+    }
+  
+    .servicios-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    .servicio-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.5rem;
+      background-color: rgba(20, 20, 20, 0.8);
+      border-radius: 0;      transition: all 0.4s ease;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+        &:hover {
+        background-color: rgba(30, 30, 30, 0.9);
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(44, 44, 44, 0.3); // antes: rgba(193, 39, 45, 0.3)
+        
+        .icono-circulo {
+          background-color: #2C2C2C; // antes: #c1272d
+          transform: rotate(15deg) scale(1.1);
+          
+          img {
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(44, 44, 44, 0.7));
+          }
+        }
+        
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+  
+    .icono-circulo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-color: #2C2C2C; // antes: #c1272d
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;      transition: all 0.4s ease;
+      border: 2px solid #000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+      img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        transition: all 0.3s ease;
+        filter: brightness(0) invert(1); // Para hacer las imágenes blancas
+      }
+    }
+  
+    span {
+      font-size: clamp(1rem, 1.3vw, 1.3rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.4;
+      letter-spacing: 1px;      font-family: var(--fuente-body);
+      text-transform: uppercase;
+      position: relative;
+    }
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 992px) {
+    .servicios-section {
+      padding: 4rem 1.5rem;
+      
+      .servicios-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      
+      .servicio-item {
+        padding: 2rem 1rem;
+      }      .icono-circulo {
+        width: 80px;
+        height: 80px;
+        
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .servicios-section {
+      background-attachment: scroll;
+      
+      h2 {
+        letter-spacing: 2px;
+      }
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .servicios-section {
+      padding: 3rem 1rem;
+      
+      .servicios-container {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+      
+      .servicio-item {
+        flex-direction: row;
+        text-align: left;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        align-items: center;
+        
+        &::before {
+          height: 100%;
+          width: 3px;
+          bottom: auto;
+          top: 0;
+        }
+      }      .icono-circulo {
+        margin-bottom: 0;
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      
+      span {
+        text-align: left;
+        
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
