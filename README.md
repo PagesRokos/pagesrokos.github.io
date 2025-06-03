@@ -1,27 +1,101 @@
-# RokosBarberClub
+# Rokos Barber Club
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+Sitio web oficial de Rokos Barber Club - Tu destino para el mejor servicio de barbería.
 
-## Development server
+## 🚀 Despliegue Automático
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Este proyecto está configurado para desplegarse automáticamente en GitHub Pages con dominio personalizado `rokos.cl`.
 
-## Code scaffolding
+### Configuración actual:
+- **Dominio**: https://rokos.cl
+- **Despliegue**: Automático via GitHub Actions
+- **CDN**: Cloudflare
+- **Hosting**: GitHub Pages
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🛠️ Comandos Disponibles
 
-## Build
+### Desarrollo
+```bash
+npm start                # Servidor de desarrollo
+npm run build           # Build básico
+npm run build:prod      # Build para producción con base-href configurado
+npm run deploy          # Build y deploy manual a GitHub Pages
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Testing
+```bash
+npm test               # Tests unitarios
+npm run test:watch     # Tests en modo watch
+```
 
-## Running unit tests
+## 📦 Despliegue
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+El despliegue es **completamente automático**:
+1. Haz push a la rama `main`
+2. GitHub Actions construye y despliega automáticamente
+3. El sitio se actualiza en https://rokos.cl en ~5 minutos
 
-## Running end-to-end tests
+### Flujo de despliegue:
+1. **Push a main** → GitHub Actions se ejecuta
+2. **Build Angular** → Genera archivos optimizados
+3. **Deploy** → Publica en gh-pages branch
+4. **Cloudflare** → Distribuye globalmente
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🌐 Configuración DNS
 
-## Further help
+Para detalles completos sobre la configuración DNS con NIC Chile y Cloudflare, revisa [DNS-CONFIG.md](./DNS-CONFIG.md).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 🏗️ Tecnologías
+
+- **Framework**: Angular 17
+- **UI**: Angular Material + Bootstrap Icons
+- **Estilos**: SCSS
+- **Hosting**: GitHub Pages
+- **CDN**: Cloudflare
+- **CI/CD**: GitHub Actions
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── app/
+│   ├── components/     # Componentes reutilizables
+│   ├── pages/         # Páginas de la aplicación
+│   └── styles/        # Estilos globales
+└── assets/           # Recursos estáticos
+```
+
+## 🔧 Desarrollo Local
+
+1. **Instalar dependencias**:
+   ```bash
+   npm install
+   ```
+
+2. **Ejecutar servidor de desarrollo**:
+   ```bash
+   npm start
+   ```
+
+3. **Navegar a**: `http://localhost:4200/`
+
+## 📱 Funcionalidades
+
+- ✅ Diseño responsive
+- ✅ Navegación SPA con Angular Router
+- ✅ Integración con WhatsApp
+- ✅ Galería de servicios
+- ✅ Información de contacto y ubicación
+- ✅ SEO optimizado
+- ✅ PWA ready
+
+## 🚀 Performance
+
+- Bundle inicial optimizado
+- Lazy loading de rutas
+- Imágenes optimizadas
+- CDN global via Cloudflare
+
+---
+
+**URL en vivo**: https://rokos.cl
