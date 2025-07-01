@@ -1,0 +1,15 @@
+// Estilos del componente principal
+
+/* Evitar espacios adicionales por los botones flotantes */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Asegurar que los botones flotantes no afecten el layout */
+.loyalty-button,
+.whatsapp-button {
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}

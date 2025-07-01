@@ -1,0 +1,383 @@
+/* Asegurar que el componente no genere espacios adicionales */
+:host {
+  display: contents;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.popup-container {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.4s ease-out;
+  border: 2px solid #d4af37;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 10;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+}
+
+.popup-content {
+  padding: 30px;
+  color: white;
+  text-align: center;
+}
+
+.popup-header {
+  margin-bottom: 25px;
+
+  .logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    color: #d4af37;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+  }
+}
+
+.popup-body {
+  .card-image {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.loyalty-card {
+  width: 320px;
+  height: 200px;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+.card-front {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #d4af37 100%);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 
+    0 15px 30px rgba(212, 175, 55, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: cardFloat 3s ease-in-out infinite alternate;
+  border: 2px solid #d4af37;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .card-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #d4af37;
+
+    .card-logo-img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  .card-title {
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .card-subtitle {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-pattern {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(212, 175, 55, 0.1) 25%,
+      rgba(212, 175, 55, 0.2) 50%,
+      rgba(212, 175, 55, 0.1) 75%,
+      transparent 100%
+    );
+
+    &::after {
+      content: 'ROKOS BARBER CLUB';
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      color: rgba(212, 175, 55, 0.7);
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.benefits {
+  text-align: left;
+  margin-bottom: 25px;
+
+  h3 {
+    color: #d4af37;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 14px;
+      line-height: 1.4;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      strong {
+        color: #d4af37;
+      }
+    }
+  }
+}
+
+.cta-section {
+  .announcement {
+    background: rgba(212, 175, 55, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+
+    strong {
+      color: #d4af37;
+      font-size: 16px;
+    }
+  }
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+
+  .whatsapp-btn {
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      background: #1fa851;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+  }
+
+  .remind-btn {
+    background: transparent;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #d4af37;
+      color: #1a1a1a;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cardFloat {
+  from {
+    transform: translateY(0px) rotateY(0deg);
+  }
+  to {
+    transform: translateY(-10px) rotateY(5deg);
+  }
+}
+
+// Responsive design
+@media (max-width: 480px) {
+  .popup-container {
+    width: 95%;
+    margin: 10px;
+  }
+
+  .popup-content {
+    padding: 20px;
+  }
+
+  .loyalty-card {
+    width: 280px;
+    height: 180px;
+  }
+
+  .card-front {
+    padding: 20px;
+
+    .card-logo {
+      width: 50px;
+      height: 50px;
+      top: 15px;
+      right: 15px;
+
+      .card-logo-img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .card-title {
+      font-size: 12px;
+    }
+
+    .card-subtitle {
+      font-size: 20px;
+    }
+
+    .card-pattern::after {
+      font-size: 8px;
+      bottom: 8px;
+      left: 15px;
+    }
+  }
+
+  .popup-header h2 {
+    font-size: 20px;
+  }
+
+  .benefits h3 {
+    font-size: 16px;
+  }
+
+  .benefits ul li {
+    font-size: 13px;
+  }
+
+  .action-buttons {
+    .whatsapp-btn,
+    .remind-btn {
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+  }
+}
