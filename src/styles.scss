@@ -159,8 +159,9 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 44px;
-  padding: 0 20px;
+  /* height: 44px;  <-- quitamos altura fija para mejor centrado en iOS */
+  min-height: 44px;
+  padding: 10px 24px; /* más vertical para centrar ópticamente */
   font-family: var(--fuente-titulos);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -171,9 +172,13 @@ p {
   border-radius: 28px;
   cursor: pointer;
   transition: filter .3s ease, transform .3s ease;
+  -webkit-font-smoothing: antialiased;
 }
-.loyalty-button:hover { filter: brightness(1.05); transform: translateY(-2px); }
-.loyalty-button span { display: inline-block; text-align: center; line-height: 1; white-space: normal; }
+.loyalty-button span { display: flex; align-items: center; justify-content: center; line-height: 1.05; white-space: normal; }
+/* Ajuste fino específico para Safari/iOS (detecta características WebKit móviles) */
+@supports (-webkit-touch-callout: none) {
+  .loyalty-button span { position: relative; top: 1px; }
+}
 
 /* Estado inicial oculto de FABs antes de carga completa */
 .whatsapp-button, .loyalty-button {
@@ -198,11 +203,10 @@ body.app-loaded .loyalty-button { transition-delay: .20s, .20s; }
   :root { --fab-offset: 15px; --fab-right: 15px; --wsp-size: 56px; --wsp-icon: 34px; --fab-gap: 12px; }
   .logo { width: var(--logo-width-mobile); }
   .loyalty-button {
-    bottom: calc(env(safe-area-inset-bottom) + var(--fab-offset) + var(--wsp-size) + var(--fab-gap));
-    padding: 0 22px;
+    padding: 10px 22px; /* mantener vertical */
     font-size: 12px;
     min-width: 140px;
-    height: 44px;
+    min-height: 44px;
     gap: 8px;
     svg { width: 20px; height: 20px; }
     .club-icon { display: none; }
@@ -212,26 +216,20 @@ body.app-loaded .loyalty-button { transition-delay: .20s, .20s; }
 @media (max-width: 480px) {
   :root { --fab-offset: 18px; --fab-right: 10px; --wsp-size: 52px; --wsp-icon: 32px; --fab-gap: 8px; }
   .loyalty-button {
-    width: auto;
-    min-width: 135px;
     padding: 10px 18px;
+    min-height: 44px;
     font-size: 12px;
-    bottom: calc(env(safe-area-inset-bottom) + var(--fab-offset) + var(--wsp-size) + var(--fab-gap));
-    span { white-space: normal; display: block; line-height: 1.05; text-align: center; }
-    .club-icon { display: none; }
+    span { display: flex; }
   }
 }
 
 @media (max-width: 360px) {
   :root { --fab-offset: 16px; --fab-right: 8px; --wsp-size: 48px; --wsp-icon: 28px; --fab-gap: 6px; }
   .loyalty-button {
-    width: auto;
-    min-width: 125px;
     padding: 8px 14px;
+    min-height: 40px;
     font-size: 10px;
-    bottom: calc(env(safe-area-inset-bottom) + var(--fab-offset) + var(--wsp-size) + var(--fab-gap));
-    span { display: block; white-space: normal; font-size: 9px; line-height: 1.05; text-align: center; }
-    .club-icon { display: none; }
+    span { font-size: 9px; }
   }
 }
 
