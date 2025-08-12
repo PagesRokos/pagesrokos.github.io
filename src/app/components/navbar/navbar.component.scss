@@ -54,28 +54,24 @@
           color: #000;
         }
       }
-
-      &.join-club-btn {
-        background: linear-gradient(135deg,#d4af37,#f5e76e,#d4af37);
-        color:#111;
-        padding:0.5rem 1rem;
-        border-radius:8px;
-        font-weight:600;
-        letter-spacing:1px;
-        box-shadow:0 4px 14px rgba(212,175,55,.35);
-        text-transform:uppercase;
-        transition:all .3s ease;
-        position:relative;
-        overflow:hidden;
+      &.unete-btn {
+        background: linear-gradient(135deg, #d4af37 0%, #f5e76e 50%, #d4af37 100%);
+        color: #1a1a1a;
+        border-radius: 8px;
+        font-weight: bold;
+        padding: 0.5rem 1.0rem;
+        letter-spacing: 1.5px;
+        box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+        transition: background 0.3s, color 0.3s, transform 0.3s;
+        text-transform: uppercase;
+        border: none;
+        position: relative;
 
         &:hover {
-          filter:brightness(1.1);
-          transform:translateY(-2px);
+          background: linear-gradient(135deg, #f5e76e 0%, #d4af37 50%, #f5e76e 100%);
+          transform: translateY(-2px);
         }
-
-        &:active {
-          transform:translateY(0);
-        }
+        &:active { transform: scale(0.96); }
       }
     }
   }
@@ -109,9 +105,8 @@
         display: flex;
       }
     }
-
-    .nav-links a.join-club-btn {
-      width: 100%;
+    .nav-links {
+      a.unete-btn { width: 100%; }
     }
   }
   
