@@ -23,6 +23,8 @@
   --fab-gap: 12px;      /* separación entre botones */
   --wsp-size: 60px;     /* diámetro botón WhatsApp (opción B) */
   --wsp-icon: 38px;     /* tamaño ícono WhatsApp (aumentado) */
+  --wsp-bg: #25D366; /* color oficial WhatsApp */
+  --wsp-shadow: 0 4px 14px rgba(37,211,102,.45);
 }
 
 html, body {
@@ -117,13 +119,35 @@ p {
   width: var(--wsp-size) !important;
   height: var(--wsp-size) !important;
   z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--wsp-bg);
+  border-radius: 50%;
+  box-shadow: var(--wsp-shadow);
+  transition: transform .28s ease, box-shadow .28s ease, background .28s ease;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 6px 20px rgba(37,211,102,.6);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(.98);
+  }
 
   img {
-    width: var(--wsp-icon) !important;
-    height: var(--wsp-icon) !important;
+    width: calc(var(--wsp-icon));
+    height: calc(var(--wsp-icon));
     object-fit: contain;
     display: block;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.35));
   }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-button { box-shadow: 0 3px 10px rgba(37,211,102,.4); }
 }
 
 /* Loyalty button always above WhatsApp with constant gap */
