@@ -14,4 +14,7 @@ import { LoyaltyPopupComponent } from "./components/loyalty-popup/loyalty-popup.
 })
 export class AppComponent {
   title = 'rokos-barber-club';
+  showFloating = false; // se mostrarán tras cerrar popup
+  onPopupOpened() { this.showFloating = false; }
+  onPopupClosed() { this.showFloating = true; }
 }
