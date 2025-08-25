@@ -3,17 +3,8 @@
 <app-footer></app-footer>
 <app-loyalty-popup #loyaltyPopup (opened)="onPopupOpened()" (closed)="onPopupClosed()"></app-loyalty-popup>
 
-<!-- Botones flotantes solo después de cerrar popup -->
+<!-- Botones flotantes: solo WhatsApp ahora -->
 <div class="floating-fabs" *ngIf="showFloating">
-  <button
-    class="loyalty-button"
-    (click)="loyaltyPopup.openPopupManually()"
-    aria-label="Ver información sobre tarjeta de fidelización"
-    title="Tarjeta de Fidelización Digital"
-  >
-    <span>¡ÚNETE AL CLUB!</span>
-  </button>
-
   <a
     class="whatsapp-button"
     href="https://wa.me/56982512970?text=Hola%2C%20quiero%20reservar%20una%20hora%20en%20Rokos%20Barber%20Club."

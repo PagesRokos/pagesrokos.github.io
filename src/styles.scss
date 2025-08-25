@@ -100,44 +100,6 @@ p {
   }
 }
 
-/* Loyalty Button */
-.loyalty-button {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  z-index: 9999;
-  background: linear-gradient(135deg, #d4af37 0%, #f5e76e 50%, #d4af37 100%);
-  border: none;
-  border-radius: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-  transition: all 0.3s ease;
-  padding: 0 22px;
-  color: #1a1a1a;
-  font-weight: 700;
-  font-size: 13px;
-  cursor: pointer;
-  text-decoration: none;
-  min-width: 150px;
-  min-height: 48px;
-  line-height: 1.1;
-  text-align: center;
-  letter-spacing: 0.5px;
-  font-family: var(--fuente-titulos);
-  white-space: nowrap;
-
-  span { pointer-events: none; }
-
-  &:hover {
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
-    background: linear-gradient(135deg, #f5e76e 0%, #d4af37 50%, #f5e76e 100%);
-  }
-  &:active { transform: scale(0.97); }
-}
-
 /* WhatsApp Button */
 .whatsapp-button {
   position: fixed;
@@ -443,12 +405,10 @@ p {
 .floating-fabs {
   position: relative; /* context for child animations (buttons already fixed) */
   animation: fabsFadeIn 0.6s ease-out;
-  .loyalty-button, .whatsapp-button {
+  .whatsapp-button {
     opacity: 0;
-    animation: fabPop 0.55s cubic-bezier(.25,.8,.25,1) forwards;
+    animation: fabPop 0.55s cubic-bezier(.25,.8,.25,1) .15s forwards;
   }
-  .loyalty-button { animation-delay: .15s; }
-  .whatsapp-button { animation-delay: .30s; }
 }
 
 @keyframes fabPop {
