@@ -17,12 +17,10 @@ export class LoyaltyPopupComponent implements OnInit, OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {
-    console.log('🎯 LoyaltyPopupComponent iniciado');
     // Solo ejecutar en el navegador
     if (isPlatformBrowser(this.platformId)) {
       // Mostrar el popup inmediatamente al cargar la página
       setTimeout(() => {
-        console.log('📢 Mostrando popup automáticamente al cargar la página');
         this.showPopup(); // Sin cierre automático
       }, 1000); // Esperar 1 segundo después de cargar la página
     }
@@ -31,7 +29,6 @@ export class LoyaltyPopupComponent implements OnInit, OnDestroy {
   showPopup() {
     this.isVisible = true;
     this.opened.emit();
-    console.log('✨ Popup mostrado - permanecerá abierto');
     
     // Prevenir scroll del body cuando el popup está abierto (solo en navegador)
     if (isPlatformBrowser(this.platformId) && typeof document !== 'undefined') {
@@ -42,7 +39,6 @@ export class LoyaltyPopupComponent implements OnInit, OnDestroy {
   closePopup() {
     this.isVisible = false;
     this.closed.emit();
-    console.log('❌ Popup cerrado');
     
     // Restaurar scroll del body (solo en navegador)
     if (isPlatformBrowser(this.platformId) && typeof document !== 'undefined') {
@@ -51,7 +47,6 @@ export class LoyaltyPopupComponent implements OnInit, OnDestroy {
   }
 
   openPopupManually() {
-    console.log('🔘 Popup abierto manualmente desde el botón');
     // Método para abrir el popup manualmente desde el botón
     this.showPopup();
   }
