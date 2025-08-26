@@ -9,7 +9,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@
 .popup-container {
   background: #1b1b1b;
   border-radius: 18px;
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5);
   width: 100%;
   max-width: 420px;
   min-width: 300px;
@@ -59,68 +59,80 @@
 
 .popup-content {
   padding: 26px 26px 30px;
+  --popup-pad-x: 26px;
 }
 
-.popup-header.simple {
-  margin: 0 0 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.popup-header.simple .logo {
-  width: 72px;
-  margin-bottom: 12px;
-}
-
-.popup-header.simple h2 {
-  color: #d4af37;
-  font-size: 22px;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-  margin: 0;
-  text-align: center;
-}
-
-.popup-body.compact {
-  font-size: 15px;
-}
-
-.benefits-intro {
-  text-align: center;
-  margin: 0 0 14px;
-  color: #f5f5f5;
-  font-weight: 500;
-}
-
+/* Full-bleed benefit bands */
 .benefits-simple {
   list-style: none;
   margin: 0 0 22px;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0; /* unificar bandas */
+  position: relative;
+  width: calc(100% + (var(--popup-pad-x) * 2));
+  margin-left: calc(var(--popup-pad-x) * -1);
 }
 
 .benefits-simple li {
+  /* reemplaza estilo de cajas pequeñas por bandas completas */
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 10px var(--popup-pad-x); /* quitar padding lateral para que el fondo abarque todo */
+  position: relative;
+  font-size: 14px;
+  display: block;
+  align-items: unset;
+  gap: 0;
+}
+
+.benefits-simple li:first-child::before {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.benefits-simple li:last-child::before {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.benefits-simple li + li {
+  margin-top: 2px;
+}
+
+.benefits-simple li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     90deg,
     rgba(212, 175, 55, 0.18),
     rgba(212, 175, 55, 0.05)
   );
-  padding: 10px 14px;
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  border-radius: 10px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.5);
+}
+
+.benefits-simple li strong,
+.benefits-simple li {
+  position: relative;
+  z-index: 1;
 }
 
 .benefits-simple li strong {
-  color: #f5e76e;
-  font-weight: 600;
+  color: #ffd600;
+}
+
+/* Línea divisoria sutil entre bandas */
+.benefits-simple li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(212, 175, 55, 0.25);
 }
 
 .cta-single {
@@ -129,32 +141,34 @@
 }
 
 .join-btn {
-  background: linear-gradient(
-    135deg,
-    #d4af37,
-    #f5e76e,
-    #d4af37
-  );
-  color: #1a1a1a;
-  text-decoration: none;
-  font-weight: 700;
-  padding: 12px 32px;
-  border-radius: 30px;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
-  transition: 0.35s cubic-bezier(0.4, 0.8, 0.3, 1);
-  position: relative;
-  overflow: hidden;
+  background-color: #ffd600; /* mismo color */
+  color: #222;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.5rem 1.0rem; /* igual que reservar-btn */
+  box-shadow: 0 4px 18px rgba(212, 180, 41, 0.25);
+  letter-spacing: 1.5px;
+  transition: background 0.3s, color 0.3s; /* igual */
+  border: none;
+  font-size: 1rem; /* mantener tamaño base */
+  line-height: 1; /* evitar altura extra */
+  font-family: var(--fuente-titulos, 'Roboto', Arial, sans-serif);
+  display: inline-block;
+  text-decoration: none; /* quitar subrayado */
 }
 
 .join-btn:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.55);
+  background-color: #d4b429;
+  color: #000;
 }
 
 .join-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.97);
+}
+
+.join-btn:focus-visible {
+  outline-offset: 2px;
 }
 
 /* Remove old card & sections (kept if future revert) */
@@ -164,6 +178,30 @@
 .cta-section,
 .action-buttons {
   display: none !important;
+}
+
+/* Encabezado centrado y de ancho completo */
+.popup-header.simple {
+  width: calc(100% + (var(--popup-pad-x) * 2));
+  margin-left: calc(var(--popup-pad-x) * -1);
+  padding: 0 var(--popup-pad-x) 4px; /* alinear con bandas y dar un pequeño espacio inferior */
+  box-sizing: border-box;
+}
+
+.popup-header.simple .logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 58px;
+  margin-bottom: 10px;
+}
+
+/* Nueva clase para el título de introducción centrado */
+.benefits-intro {
+  text-align: center;
+  color: #d4af37;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
 /* Responsive adjustments */
@@ -180,16 +218,17 @@
 
   .popup-content {
     padding: 22px 22px 26px;
+    --popup-pad-x: 22px;
   }
 
   .benefits-simple li {
     font-size: 13.5px;
-    padding: 9px 12px;
+    padding: 9px var(--popup-pad-x);
   }
 
-  .join-btn {
-    font-size: 14px;
-    padding: 11px 28px;
+  .popup-header.simple .logo {
+    width: 54px;
+    margin-bottom: 8px;
   }
 }
 
