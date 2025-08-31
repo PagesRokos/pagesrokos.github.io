@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:rokos-barber-club": "node dist/rokos-barber-club/server/server.mjs",
-    "deploy": "ng build --configuration production --base-href /pagesrokos.github.io/ && npx angular-cli-ghpages --dir=dist/rokos-barber-club/browser"
+  "deploy": "ng build --configuration production && npx angular-cli-ghpages --dir=dist/rokos-barber-club/browser"
   },
   "private": true,
   "dependencies": {
