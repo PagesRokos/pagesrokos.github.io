@@ -9,7 +9,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  /* Fondo más claro (antes 0.30) para ver mejor el contenido detrás */
+  background-color: rgba(0, 0, 0, 0.01);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,16 +20,19 @@
 }
 
 .popup-container {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  max-width: 500px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
+  background: #1b1b1b;
+  border-radius: 18px;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 420px;
+  min-width: 300px;
+  max-height: 85vh;
+  padding: 0; /* we'll pad inside */
+  overflow: hidden;
   position: relative;
-  animation: slideUp 0.4s ease-out;
   border: 2px solid #d4af37;
+  display: flex;
+  flex-direction: column;
 }
 
 .close-button {
@@ -55,234 +59,192 @@
 }
 
 .popup-content {
-  padding: 30px;
-  color: white;
-  text-align: center;
+  padding: 26px 26px 30px;
+  --popup-pad-x: 26px;
 }
 
-.popup-header {
-  margin-bottom: 25px;
-
-  .logo {
-    width: 80px;
-    height: auto;
-    margin-bottom: 15px;
-  }
-
-  h2 {
-    color: #d4af37;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    letter-spacing: 1px;
-  }
-}
-
-.popup-body {
-  .card-image {
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: center;
-  }
-}
-
-.loyalty-card {
-  width: 320px;
-  height: 200px;
-  perspective: 1000px;
-  margin: 0 auto;
-}
-
-.card-front {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #d4af37 100%);
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 
-    0 15px 30px rgba(212, 175, 55, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
-  animation: cardFloat 3s ease-in-out infinite alternate;
-  border: 2px solid #d4af37;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .card-logo {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background: rgba(212, 175, 55, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #d4af37;
-
-    .card-logo-img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-    }
-  }
-
-  .card-title {
-    color: #d4af37;
-    font-size: 14px;
-    font-weight: bold;
-    margin-top: 15px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-
-  .card-subtitle {
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 5px;
-    letter-spacing: 3px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-
-  .card-pattern {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(212, 175, 55, 0.1) 25%,
-      rgba(212, 175, 55, 0.2) 50%,
-      rgba(212, 175, 55, 0.1) 75%,
-      transparent 100%
-    );
-
-    &::after {
-      content: 'ROKOS BARBER CLUB';
-      position: absolute;
-      bottom: 10px;
-      left: 20px;
-      color: rgba(212, 175, 55, 0.7);
-      font-size: 10px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-  }
-}
-
-.benefits {
-  text-align: left;
-  margin-bottom: 25px;
-
-  h3 {
-    color: #d4af37;
-    font-size: 18px;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-      margin-bottom: 10px;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 14px;
-      line-height: 1.4;
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      strong {
-        color: #d4af37;
-      }
-    }
-  }
-}
-
-.cta-section {
-  .announcement {
-    background: rgba(212, 175, 55, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-
-    strong {
-      color: #d4af37;
-      font-size: 16px;
-    }
-  }
-}
-
-.action-buttons {
+/* Full-bleed benefit bands */
+.benefits-simple {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
   display: flex;
-  gap: 15px;
   flex-direction: column;
+  gap: 0; /* unificar bandas */
+  position: relative;
+  width: calc(100% + (var(--popup-pad-x) * 2));
+  margin-left: calc(var(--popup-pad-x) * -1);
+}
 
-  .whatsapp-btn {
-    background: #25D366;
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+.benefits-simple li {
+  /* reemplaza estilo de cajas pequeñas por bandas completas */
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 10px var(--popup-pad-x); /* quitar padding lateral para que el fondo abarque todo */
+  position: relative;
+  font-size: 14px;
+  display: block;
+  align-items: unset;
+  gap: 0;
+}
 
-    img {
-      width: 20px;
-      height: 20px;
-    }
+.benefits-simple li:first-child::before {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
 
-    &:hover {
-      background: #1fa851;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-    }
+.benefits-simple li:last-child::before {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.benefits-simple li + li {
+  margin-top: 2px;
+}
+
+.benefits-simple li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0.18),
+    rgba(212, 175, 55, 0.05)
+  );
+}
+
+.benefits-simple li strong,
+.benefits-simple li {
+  position: relative;
+  z-index: 1;
+}
+
+.benefits-simple li strong {
+  color: #ffd600;
+}
+
+/* Línea divisoria sutil entre bandas */
+.benefits-simple li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(212, 175, 55, 0.25);
+}
+
+.cta-single {
+  display: flex;
+  justify-content: center;
+}
+
+.join-btn {
+  background-color: #ffd600; /* mismo color */
+  color: #222;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.5rem 1.0rem; /* igual que reservar-btn */
+  box-shadow: 0 4px 18px rgba(212, 180, 41, 0.25);
+  letter-spacing: 1.5px;
+  transition: background 0.3s, color 0.3s; /* igual */
+  border: none;
+  font-size: 1rem; /* mantener tamaño base */
+  line-height: 1; /* evitar altura extra */
+  font-family: var(--fuente-titulos, 'Roboto', Arial, sans-serif);
+  display: inline-block;
+  text-decoration: none; /* quitar subrayado */
+}
+
+.join-btn:hover {
+  background-color: #d4b429;
+  color: #000;
+}
+
+.join-btn:active {
+  transform: scale(0.97);
+}
+
+.join-btn:focus-visible {
+  outline-offset: 2px;
+}
+
+/* Remove old card & sections (kept if future revert) */
+.loyalty-card,
+.card-front,
+.benefits,
+.cta-section,
+.action-buttons {
+  display: none !important;
+}
+
+/* Encabezado centrado y de ancho completo */
+.popup-header.simple {
+  width: calc(100% + (var(--popup-pad-x) * 2));
+  margin-left: calc(var(--popup-pad-x) * -1);
+  padding: 0 var(--popup-pad-x) 4px; /* alinear con bandas y dar un pequeño espacio inferior */
+  box-sizing: border-box;
+}
+
+.popup-header.simple .logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 58px;
+  margin-bottom: 10px;
+}
+
+/* Nueva clase para el título de introducción centrado */
+.benefits-intro {
+  text-align: center;
+  color: #d4af37;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .popup-container {
+    max-width: 360px;
+    min-width: 280px;
+    border-radius: 16px;
   }
 
-  .remind-btn {
-    background: transparent;
-    color: #d4af37;
-    border: 2px solid #d4af37;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  .popup-header.simple h2 {
+    font-size: 20px;
+  }
 
-    &:hover {
-      background: #d4af37;
-      color: #1a1a1a;
-      transform: translateY(-2px);
-    }
+  .popup-content {
+    padding: 22px 22px 26px;
+    --popup-pad-x: 22px;
+  }
+
+  .benefits-simple li {
+    font-size: 13.5px;
+    padding: 9px var(--popup-pad-x);
+  }
+
+  .popup-header.simple .logo {
+    width: 54px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .popup-container {
+    max-width: 320px;
+    min-width: 260px;
+  }
+
+  .popup-header.simple h2 {
+    font-size: 18px;
+  }
+
+  .benefits-simple li {
+    font-size: 13px;
   }
 }
 
@@ -312,72 +274,5 @@
   }
   to {
     transform: translateY(-10px) rotateY(5deg);
-  }
-}
-
-// Responsive design
-@media (max-width: 480px) {
-  .popup-container {
-    width: 95%;
-    margin: 10px;
-  }
-
-  .popup-content {
-    padding: 20px;
-  }
-
-  .loyalty-card {
-    width: 280px;
-    height: 180px;
-  }
-
-  .card-front {
-    padding: 20px;
-
-    .card-logo {
-      width: 50px;
-      height: 50px;
-      top: 15px;
-      right: 15px;
-
-      .card-logo-img {
-        width: 30px;
-        height: 30px;
-      }
-    }
-
-    .card-title {
-      font-size: 12px;
-    }
-
-    .card-subtitle {
-      font-size: 20px;
-    }
-
-    .card-pattern::after {
-      font-size: 8px;
-      bottom: 8px;
-      left: 15px;
-    }
-  }
-
-  .popup-header h2 {
-    font-size: 20px;
-  }
-
-  .benefits h3 {
-    font-size: 16px;
-  }
-
-  .benefits ul li {
-    font-size: 13px;
-  }
-
-  .action-buttons {
-    .whatsapp-btn,
-    .remind-btn {
-      padding: 10px 15px;
-      font-size: 14px;
-    }
   }
 }

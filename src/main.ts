@@ -15,4 +15,4 @@ bootstrapApplication(AppComponent, appConfig)
       });
     }
   })
-  .catch((err) => console.error(err));
+  .catch((err) => { if ((globalThis as any).process?.env?.NODE_ENV !== 'production') console.error(err); });

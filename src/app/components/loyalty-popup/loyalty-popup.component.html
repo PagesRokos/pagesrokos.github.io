@@ -1,61 +1,32 @@
 <div class="popup-overlay" *ngIf="isVisible" (click)="closePopup()">
-  <div class="popup-container" (click)="$event.stopPropagation()">
-    <button class="close-button" (click)="closePopup()">
+  <div class="popup-container" (click)="$event.stopPropagation()" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+    <button class="close-button" (click)="closePopup()" aria-label="Cerrar popup">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
-    
+
     <div class="popup-content">
-      <div class="popup-header">
-        <img src="assets/logo3.png" alt="Rokos Barber Club" class="logo">
-        <h2>¡NUEVA TARJETA DE FIDELIZACIÓN!</h2>
+      <div class="popup-header simple">
+        <img src="assets/logo3.png" alt="Rokos Barber Club" class="logo" loading="lazy" decoding="async">
+        <h2 id="popup-title">¡ÚNETE AL CLUB ROKOS!</h2>
       </div>
-      
-      <div class="popup-body">
-        <div class="card-image">
-          <div class="loyalty-card">
-            <div class="card-front">
-              <div class="card-logo">
-                <img src="assets/logo3.png" alt="Rokos" class="card-logo-img">
-              </div>
-              <div class="card-title">TARJETA DE FIDELIZACIÓN</div>
-              <div class="card-subtitle">DIGITAL</div>
-              <div class="card-pattern"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="benefits">
-          <h3>🎯 Beneficios Exclusivos:</h3>
-          <ul>
-            <li>✂️ <strong>Corte gratis</strong> cada 10 visitas</li>
-            <li>🎁 <strong>Descuentos especiales</strong> en productos</li>
-            <li>⚡ <strong>Prioridad</strong> en reservas</li>
-            <li>🎉 <strong>Ofertas exclusivas</strong> de cumpleaños</li>
-          </ul>
-        </div>
-        
-        <div class="cta-section">
-          <p class="announcement">
-            <strong>¡Próximamente disponible!</strong><br>
-            Mantente atento para ser de los primeros en obtenerla.
-          </p>
-          
-          <div class="action-buttons">
-            <a 
-              href="https://wa.me/56982512970?text=Hola%2C%20quiero%20información%20sobre%20la%20nueva%20tarjeta%20de%20fidelización%20digital."
-              target="_blank"
-              class="whatsapp-btn"
-              (click)="onWhatsAppClick()"
-            >
-              <img src="assets/wsp.svg" alt="WhatsApp">
-              Más información
-            </a>
-            <button class="remind-btn" (click)="closePopup()">
-              Recordarme después
-            </button>
-          </div>
+
+      <div class="popup-body compact">
+        <p class="benefits-intro">Beneficios exclusivos para nuestros socios:</p>
+        <ul class="benefits-simple">
+          <li>🎁 <strong>Regalos</strong> y promociones.</li>
+          <li>💸 <strong>Descuentos exclusivos.</strong></li>
+          <li>⏰ <strong>Recordatorios</strong> para tus futuras reservas.</li>
+        </ul>
+
+        <div class="cta-single">
+          <a
+            href="https://signup.comeback.es/b29e42b6?referralCode=2c71a098"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="join-btn"
+            >¡Quiero unirme!</a>
         </div>
       </div>
     </div>

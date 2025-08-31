@@ -44,7 +44,8 @@
         color: #222;
         border-radius: 8px;
         font-weight: bold;
-        transition: background 0.3s, color 0.3s;        text-transform: uppercase;
+        transition: background 0.3s, color 0.3s;      
+        text-transform: uppercase;
         padding: 0.5rem 1.0rem; // más grande
         box-shadow: 0 4px 18px rgba(212, 180, 41, 0.25);
         letter-spacing: 1.5px;
@@ -53,6 +54,24 @@
           background-color: #D4B429;
           color: #000;
         }
+      }
+      &.unete-btn {
+        /* Convert to simple link style */
+        background: none;
+        color: white;
+        padding: 0; /* remove button padding */
+        border: none;
+        box-shadow: none;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 0;
+        transition: color var(--transition);
+
+        &:hover {
+          color: #c1b727;
+          transform: none;
+        }
+        &:active { transform: none; }
       }
     }
   }
@@ -85,6 +104,9 @@
       &.active {
         display: flex;
       }
+    }
+    .nav-links {
+      a.unete-btn { width: 100%; padding: 0.5rem 0; }
     }
   }
   

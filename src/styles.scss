@@ -100,61 +100,6 @@ p {
   }
 }
 
-/* Loyalty Button */
-.loyalty-button {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  z-index: 9999;
-  background: linear-gradient(135deg, #d4af37 0%, #f5e76e 50%, #d4af37 100%);
-  border: none;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-  transition: all 0.3s ease;
-  padding: 0 20px;
-  color: #1a1a1a;
-  font-weight: 600;
-  font-size: 13px;
-  cursor: pointer;
-  text-decoration: none;
-  width: 140px;
-  height: 48px;
-
-  svg {
-    width: 20px;
-    height: 20px;
-    fill: #1a1a1a;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-  }
-
-  span {
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    text-align: center;
-    flex: 1;
-  }
-
-  &:hover {
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
-    background: linear-gradient(135deg, #f5e76e 0%, #d4af37 50%, #f5e76e 100%);
-
-    svg {
-      transform: scale(1.1) rotate(5deg);
-    }
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
-}
-
 /* WhatsApp Button */
 .whatsapp-button {
   position: fixed;
@@ -375,16 +320,11 @@ p {
   .loyalty-button {
     bottom: 85px;
     right: 15px;
-    padding: 12px 18px;
+    padding: 0 18px;
     font-size: 12px;
-    min-width: 120px;
-    height: 44px;
-    gap: 8px;
-    
-    svg {
-      width: 20px;
-      height: 20px;
-    }
+    min-width: 130px;
+    min-height: 44px;
+    border-radius: 30px;
   }
   
   .whatsapp-button {
@@ -421,23 +361,12 @@ p {
   .loyalty-button {
     bottom: 75px;
     right: 10px;
-    padding: 10px 16px;
+    padding: 0 16px;
     font-size: 11px;
-    min-width: 100px;
-    height: 40px;
-    gap: 6px;
-    border-radius: 25px;
-    
-    svg {
-      width: 18px;
-      height: 18px;
-    }
-    
-    span {
-      display: block; /* Mostrar texto en móviles */
-    }
+    min-width: 120px;
+    min-height: 42px;
+    border-radius: 28px;
   }
-  
   .whatsapp-button {
     right: 10px;
   }
@@ -452,21 +381,12 @@ p {
   .loyalty-button {
     bottom: 70px;
     right: 8px;
-    padding: 8px 12px;
+    padding: 0 14px;
     font-size: 10px;
-    min-width: 80px;
-    height: 36px;
-    gap: 4px;
-    border-radius: 20px;
-    
-    svg {
-      width: 16px;
-      height: 16px;
-    }
-    
-    span {
-      display: none; /* Ocultar en pantallas muy pequeñas */
-    }
+    min-width: 110px;
+    min-height: 40px;
+    border-radius: 24px;
+    letter-spacing: 0.4px;
   }
   
   .whatsapp-button {
@@ -480,3 +400,21 @@ p {
     }
   }
 }
+
+/* Floating Buttons Animation */
+.floating-fabs {
+  position: relative; /* context for child animations (buttons already fixed) */
+  animation: fabsFadeIn 0.6s ease-out;
+  .whatsapp-button {
+    opacity: 0;
+    animation: fabPop 0.55s cubic-bezier(.25,.8,.25,1) .15s forwards;
+  }
+}
+
+@keyframes fabPop {
+  0% { opacity:0; transform: scale(.6) translateY(20px); filter: blur(2px); }
+  60% { opacity:1; transform: scale(1.05) translateY(-4px); filter: blur(0); }
+  85% { transform: scale(.97) translateY(0); }
+  100% { opacity:1; transform: scale(1) translateY(0); }
+}
+@keyframes fabsFadeIn { from { opacity:0; } to { opacity:1; } }
