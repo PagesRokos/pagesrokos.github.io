@@ -1,0 +1,24 @@
+<section id="convenios" class="seccion convenios-section" aria-labelledby="convenios-title">
+  <div class="trama"></div>
+  <div class="contenedor">
+    <div class="intro">
+      <h2>Convenios</h2>
+      <p class="descripcion">
+        En Rokos Barber Club contamos con convenios activos con empresas, universidades y clubes
+        que comparten nuestra visión. Si perteneces a alguno, identifícate al reservar y accede a tus
+        beneficios especiales.
+      </p>
+    </div>
+
+    <div class="grid-convenios" role="list">
+      <article class="card" *ngFor="let convenio of convenios" role="listitem">
+        <div class="card-header">
+          <span class="tag">{{ convenio.beneficio }}</span>
+          <h3>{{ convenio.nombre }}</h3>
+        </div>
+        <p class="detalle">{{ convenio.detalle }}</p>
+        <p class="condiciones">{{ convenio.condiciones }}</p>
+      </article>
+    </div>
+  </div>
+</section>

@@ -53,7 +53,20 @@ h1, h2 {
 
 p {
   font-family: var(--fuente-body);
+  font-size: 19.2px !important;
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  p {
+    font-size: 17px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  p {
+    font-size: 16px !important;
+  }
 }
 
 .seccion-quienes {
