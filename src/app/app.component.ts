@@ -15,6 +15,19 @@ import { LoyaltyPopupComponent } from "./components/loyalty-popup/loyalty-popup.
 export class AppComponent {
   title = 'rokos-barber-club';
   showFloating = false; // se mostrarán tras cerrar popup
+  showAllianceCta = true;
+  allianceCtaMinimized = false;
+  allianceFormUrl = 'https://wa.me/56982512970?text=Hola%2C%20quiero%20ser%20alianza%20con%20Rokos%20Barber%20Club';
+
   onPopupOpened() { this.showFloating = false; }
   onPopupClosed() { this.showFloating = true; }
+
+  collapseAllianceCta(event?: Event) {
+    event?.stopPropagation();
+    this.allianceCtaMinimized = true;
+  }
+
+  expandAllianceCta() {
+    this.allianceCtaMinimized = false;
+  }
 }
