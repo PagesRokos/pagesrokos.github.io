@@ -1,24 +1,34 @@
-<section id="convenios" class="seccion convenios-section" aria-labelledby="convenios-title">
-  <div class="trama"></div>
-  <div class="contenedor">
-    <div class="intro">
-      <h2>Convenios</h2>
-      <p class="descripcion">
-        En Rokos Barber Club contamos con convenios activos con empresas, universidades y clubes
-        que comparten nuestra visión. Si perteneces a alguno, identifícate al reservar y accede a tus
-        beneficios especiales.
-      </p>
+<section id="convenios" class="seccion convenios-section">
+  <h2>Alianzas / Club de Socios Rokos Barber Club</h2>
+  
+  <div class="intro-box">
+    <div class="titulo-destacado">
+      <span class="icono-estrella"></span>
+      <h3>Ser parte de nuestro club, tiene beneficios</h3>
+      <span class="icono-estrella"></span>
     </div>
+    <p class="descripcion">
+      En Rokos Barber Club contamos con alianzas con empresas, centro de estudios y clubes, 
+      para que disfrutes de descuentos y beneficios especiales.
+    </p>
+    <div class="identificacion">
+      <span class="icono-tarjeta">🎫</span>
+      <span>Solo debes identificarte con tu tarjeta de socio</span>
+    </div>
+  </div>
 
-    <div class="grid-convenios" role="list">
-      <article class="card" *ngFor="let convenio of convenios" role="listitem">
-        <div class="card-header">
-          <span class="tag">{{ convenio.beneficio }}</span>
-          <h3>{{ convenio.nombre }}</h3>
-        </div>
-        <p class="detalle">{{ convenio.detalle }}</p>
-        <p class="condiciones">{{ convenio.condiciones }}</p>
-      </article>
+
+
+  <div class="convenios-container">
+    <div class="convenio-item" *ngFor="let convenio of convenios">
+      <div class="logo-circulo">
+        <img [src]="convenio.logo" [alt]="convenio.nombre">
+      </div>
+      <h4>{{ convenio.nombre }}</h4>
+      <p class="descripcion-convenio">{{ convenio.descripcion }}</p>
+      <a *ngIf="convenio.linkFormulario" [href]="convenio.linkFormulario" class="btn-formulario" target="_blank">
+        Ver formulario
+      </a>
     </div>
   </div>
 </section>

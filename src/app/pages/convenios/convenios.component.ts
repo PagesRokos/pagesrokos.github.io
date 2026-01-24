@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 
 interface Convenio {
   nombre: string;
-  beneficio: string;
-  detalle: string;
-  condiciones: string;
+  logo: string;
+  descripcion: string;
+  linkFormulario?: string;
 }
 
 @Component({
@@ -18,40 +18,30 @@ interface Convenio {
 export class ConveniosComponent {
   convenios: Convenio[] = [
     {
-      nombre: 'Club Deportivo Titanes',
-      beneficio: '-15% en cualquier servicio',
-      detalle: 'Beneficio exclusivo para socios activos y cuerpo técnico.',
-      condiciones: 'Presenta tu credencial vigente al momento de agendar.'
+      nombre: 'Ispeakcenter',
+      logo: 'assets/logo.png',
+      descripcion: 'Escuela de inglés.',
+      linkFormulario: '#' // La empresa enviará el link del formulario
     },
     {
-      nombre: 'Gimnasio IronBox',
-      beneficio: 'Combo Grooming + Peinado',
-      detalle: 'Precio preferente para mantener el look post entrenamiento.',
-      condiciones: 'Disponible de lunes a jueves hasta las 17:00 hrs.'
+      nombre: 'Bares',
+            logo: 'assets/logo.png',
+      descripcion: '15% de descuento de lunes a miércoles mostrando tarjeta de socio Rokos Barber Club.'
     },
     {
-      nombre: 'Universidad San Andrés',
-      beneficio: 'Corte + perfilado a tarifa estudiante',
-      detalle: 'Para alumnos y staff que muestren credencial institucional.',
-      condiciones: 'No acumulable con otras promos.'
+      nombre: 'Alimentos Saludables',
+      logo: 'assets/logo.png',
+            descripcion: 'Descuentos especiales en alimentos saludables.'
     },
     {
-      nombre: 'TechNova Partners',
-      beneficio: 'Upgrade a toalla caliente de cortesía',
-      detalle: 'Para colaboradores y proveedores certificados.',
-      condiciones: 'Válido en servicios de barbería premium.'
+      nombre: 'Centro Deportivo',
+      logo: 'assets/logo.png',
+            descripcion: 'Beneficios exclusivos en centro deportivo.'
     },
     {
-      nombre: 'Hotel Central',
-      beneficio: 'Atención express para huéspedes',
-      detalle: 'Bloques prioritarios y styling antes de eventos.',
-      condiciones: 'Reserva a través de la conserjería del hotel.'
-    },
-    {
-      nombre: 'Red de Emprendedores Locales',
-      beneficio: '10% en grooming + bebida de cortesía',
-      detalle: 'Queremos que los vecinos emprendedores se vean impecables.',
-      condiciones: 'Menciona el convenio al reservar.'
+      nombre: 'Welly Protein',
+      logo: 'assets/logo.png',   
+         descripcion: 'Suplementos para el bienestar.'
     }
   ];
 }
