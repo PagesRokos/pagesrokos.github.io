@@ -1,5 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser, Location } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface Convenio {
   nombre: string;
@@ -15,7 +16,7 @@ interface Convenio {
   templateUrl: './convenios.component.html',
   styleUrls: ['./convenios.component.scss']
 })
-export class ConveniosComponent {
+export class ConveniosComponent implements OnInit {
   convenios: Convenio[] = [
     {
       nombre: 'Ispeakcenter',
@@ -44,4 +45,43 @@ export class ConveniosComponent {
          descripcion: 'Suplementos para el bienestar.'
     }
   ];
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private router: Router,
+    private location: Location
+  ) {}
+
+  // Eliminamos estas variables porque ahora se manejan desde app.component
+  // showAllianceCta = true;
+  // allianceCtaMinimized = false;
+
+  ngOnInit(): void {
+    // No forzamos el scroll al inicio para mantener la posición "sobre" la sección anterior
+  }
+
+  volver(): void {
+    // Usamos Location.back() para aprovechar el scroll restoration
+    this.location.back();
+  }
+
+  // Minimizar el CTA (solo oculta el contenido grande, muestra el icono pequeño)
+  // Estos métodos ya no se usan aquí, se manejan desde app.component
+  /*
+  minimizeAllianceCta(event?: Event): void {
+    if (event) event.stopPropagation();
+    this.allianceCtaMinimized = true;
+  }
+
+  // Expandir el CTA (muestra el contenido grande)
+  expandAllianceCta(): void {
+    this.allianceCtaMinimized = false;
+  }
+
+  // Cerrar completamente (ya no se muestra nada en esta sesión)
+  closeAllianceCta(event?: Event): void {
+    if (event) event.stopPropagation();
+    this.showAllianceCta = false;
+  }
+  */
 }

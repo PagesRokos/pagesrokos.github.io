@@ -1,0 +1,160 @@
+/* ESTILOS COPIADOS Y ADAPTADOS DE CONVENIOS.COMPONENT.SCSS PARA LA SECCIÓN DE HOME */
+.alianzas-home-section {
+    background-color: #0a0a0a;
+    color: #fff;
+    padding: 5rem 2rem;
+    text-align: center;
+    background-image: 
+      linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)),
+      url('/assets/madera1.jpg');
+    background-position: center;
+    background-attachment: fixed;
+  
+    h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #fff;
+      margin-bottom: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+  
+    .intro-box {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, rgba(255, 214, 0, 0.1) 0%, rgba(44, 44, 44, 0.3) 100%);
+      border: 2px solid rgba(255, 214, 0, 0.3);
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+  
+      &:hover {
+        border-color: rgba(255, 214, 0, 0.6);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+  
+      .titulo-destacado {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+  
+        .icono-estrella {
+            // Se puede usar un icono CSS o SVG
+            &::before {
+                content: "★";
+                font-size: 1.5rem;
+                color: #ffd600;
+            }
+          font-size: 1.5rem;
+          animation: pulse 2s ease-in-out infinite;
+        }
+  
+        h3 {
+          font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+          font-weight: 700;
+          color: #ffd600;
+          margin: 0;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+      }
+  
+      .descripcion {
+        font-size: clamp(1rem, 1.3vw, 1.15rem);
+        color: #e8e8e8;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        text-align: center;
+  
+        &.identificacion-simple {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2rem;
+            font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+        }
+      }
+  
+      // Botón Ver Alianzas
+      .boton-action {
+        text-align: center;
+  
+        .btn-alianzas {
+          display: inline-block;
+          padding: 0.9rem 2.5rem;
+          background-color: #ffd600;
+          color: #000;
+          text-decoration: none;
+          font-weight: 700;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: 1rem;
+          box-shadow: 0 4px 15px rgba(255, 214, 0, 0.3);
+          cursor: pointer;
+  
+          &:hover {
+            background-color: #ffb700;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 214, 0, 0.5);
+          }
+        }
+      }
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.1);
+    }
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 992px) {
+    .alianzas-home-section {
+      padding: 4rem 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .alianzas-home-section {
+      background-attachment: scroll;
+      
+      h2 {
+        letter-spacing: 2px;
+      }
+  
+      .intro-box {
+        padding: 1.5rem 1.5rem;
+  
+        .titulo-destacado {
+          gap: 0.5rem;
+          flex-direction: column;
+  
+          .icono-estrella {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .alianzas-home-section {
+      padding: 3rem 1rem;
+  
+      .intro-box {
+        padding: 1.5rem 1rem;
+      }
+    }
+  }

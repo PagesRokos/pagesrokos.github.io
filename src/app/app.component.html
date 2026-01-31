@@ -1,11 +1,32 @@
 <app-navbar></app-navbar>
-<router-outlet></router-outlet>
+
+<main [@routeAnimations]="o.isActivated ? o.activatedRoute : ''">
+  <router-outlet #o="outlet"></router-outlet>
+</main>
+
 <app-footer></app-footer>
 <app-loyalty-popup #loyaltyPopup (opened)="onPopupOpened()" (closed)="onPopupClosed()"></app-loyalty-popup>
 
-<!-- Botones flotantes: solo WhatsApp ahora -->
-<div class="floating-fabs" *ngIf="showFloating" [class.with-cta]="showAllianceCta">
+<!-- Botones flotantes (WhatsApp + Alianzas) -->
+<div class="floating-fabs" *ngIf="showFloating || showAllianceCta">
+  <div class="alliance-cta" *ngIf="showAllianceCta" [class.is-minimized]="allianceCtaMinimized">
+    <ng-container *ngIf="!allianceCtaMinimized; else allianceFab">
+      <div class="cta-content">
+        <div class="cta-header">
+           <button type="button" class="btn-minimize" (click)="collapseAllianceCta($event)" aria-label="Minimizar">_</button>
+        </div>
+        <span class="cta-title">Si quieres ser alianza</span>
+        <span class="cta-sub">¡Escríbenos!</span>
+        <a [href]="allianceFormUrl" class="cta-button">Ir al formulario</a>
+      </div>
+    </ng-container>
+    <ng-template #allianceFab>
+      <button type="button" class="alliance-fab" (click)="expandAllianceCta()" aria-label="Abrir aviso de alianzas">🤝</button>
+    </ng-template>
+  </div>
+
   <a
+    *ngIf="showFloating"
     class="whatsapp-button"
     href="https://wa.me/56982512970?text=Hola%2C%20quiero%20reservar%20una%20hora%20en%20Rokos%20Barber%20Club."
     target="_blank"
@@ -14,51 +35,4 @@
   >
     <img src="assets/wsp.svg" alt="WhatsApp" />
   </a>
-
-  <div
-    *ngIf="showAllianceCta"
-    class="alliance-cta"
-    [class.is-minimized]="allianceCtaMinimized"
-    role="alert"
-    aria-live="polite"
-  >
-    <button
-      type="button"
-      class="cta-close"
-      (click)="collapseAllianceCta($event)"
-      aria-label="Cerrar aviso de alianzas"
-    >
-      ×
-    </button>
-
-    <ng-container *ngIf="!allianceCtaMinimized; else allianceFab">
-      <div class="cta-copy">
-        <span class="cta-title">Si quieres ser alianza</span>
-        <span class="cta-sub">¡Escríbenos!</span>
-      </div>
-      <a
-        class="cta-link"
-        [href]="allianceFormUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Ir al formulario
-      </a>
-    </ng-container>
-
-    <ng-template #allianceFab>
-      <button
-        type="button"
-        class="alliance-fab"
-        (click)="expandAllianceCta()"
-        aria-label="Abrir aviso de alianzas"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path
-            d="M8.2 12.5a3.7 3.7 0 0 1 0-5.2l2-2a3.7 3.7 0 0 1 5.2 0 3.7 3.7 0 0 1 0 5.2l-.7.7a1 1 0 1 1-1.4-1.4l.7-.7a1.7 1.7 0 0 0 0-2.4 1.7 1.7 0 0 0-2.4 0l-2 2a1.7 1.7 0 0 0 0 2.4 1 1 0 1 1-1.4 1.4Zm7.6-1a1 1 0 0 1 0 1.4l-2 2a3.7 3.7 0 0 1-5.2 0 3.7 3.7 0 0 1 0-5.2l.7-.7a1 1 0 1 1 1.4 1.4l-.7.7a1.7 1.7 0 0 0 0 2.4 1.7 1.7 0 0 0 2.4 0l2-2a1 1 0 0 1 1.4 0Z"
-          />
-        </svg>
-      </button>
-    </ng-template>
-  </div>
 </div>

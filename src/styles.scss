@@ -147,126 +147,6 @@ p {
   }
 }
 
-/* Aviso de alianzas (debajo del WhatsApp) */
-.alliance-cta {
-  position: relative;
-  background: rgba(26, 26, 26, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--text-light);
-  border-radius: 14px;
-  padding: 14px 48px 14px 16px;
-  min-width: 260px;
-  max-width: 320px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(4px);
-  display: grid;
-  row-gap: 6px;
-  animation: fabPop 0.55s cubic-bezier(.25,.8,.25,1) 0.05s forwards;
-}
-
-.alliance-cta.is-minimized {
-  min-width: 0;
-  max-width: none;
-  padding: 0;
-  border: none;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-  display: block;
-}
-
-.alliance-cta.is-minimized .cta-close {
-  display: none;
-}
-
-.alliance-fab {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: rgba(26, 26, 26, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.alliance-fab svg {
-  width: 28px;
-  height: 28px;
-}
-
-.alliance-fab svg path {
-  fill: #25d366;
-}
-
-.alliance-fab:hover {
-  transform: scale(1.06);
-  border-color: rgba(37, 211, 102, 0.55);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
-}
-
-.alliance-cta .cta-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.alliance-cta .cta-title {
-  font-weight: 700;
-  letter-spacing: 0.3px;
-}
-
-.alliance-cta .cta-sub {
-  color: #b7f4c2;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-}
-
-.alliance-cta .cta-link {
-  justify-self: start;
-  background: #25d366;
-  color: #0f2014;
-  padding: 8px 14px;
-  border-radius: 10px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 8px 18px rgba(37, 211, 102, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-.alliance-cta .cta-link:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(37, 211, 102, 0.35);
-  background: #1fb55a;
-}
-
-.alliance-cta .cta-link:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.28);
-}
-
-.alliance-cta .cta-close {
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  color: var(--text-light);
-  font-size: 18px;
-  cursor: pointer;
-  line-height: 1;
-  padding: 6px;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.alliance-cta .cta-close:hover {
-  color: #25d366;
-  transform: scale(1.05);
-}
-
 /* Secciones comunes */
 .seccion-inicio,
 .seccion-marcas {
@@ -463,7 +343,7 @@ p {
   .whatsapp-button {
     width: 50px;
     height: 50px;
-    right: 15px;
+    right: 12px !important;
 
     img {
       width: 26px;
@@ -475,22 +355,6 @@ p {
     bottom: 15px;
     right: 15px;
     gap: 10px;
-  }
-
-  .alliance-cta {
-    min-width: 230px;
-    max-width: 280px;
-    padding: 12px 44px 12px 14px;
-  }
-
-  .alliance-fab {
-    width: 50px;
-    height: 50px;
-  }
-
-  .alliance-fab svg {
-    width: 24px;
-    height: 24px;
   }
 
   .tarjeta-barber {
@@ -523,25 +387,20 @@ p {
     border-radius: 28px;
   }
   .whatsapp-button {
-    right: 10px;
+    width: 45px;
+    height: 45px;
+    right: 8px !important;
+
+    img {
+      width: 22px;
+      height: 22px;
+    }
   }
 
   .floating-fabs {
     bottom: 12px;
-    right: 10px;
+    right: 8px;
     gap: 8px;
-  }
-
-  .alliance-cta {
-    min-width: 210px;
-    max-width: 240px;
-    padding: 10px 40px 10px 12px;
-    font-size: 0.95rem;
-  }
-
-  .alliance-cta .cta-link {
-    padding: 7px 12px;
-    font-size: 0.95rem;
   }
   
   .btn-agendar, .btn-rockero {
@@ -551,51 +410,18 @@ p {
 }
 
 @media (max-width: 360px) {
-  .loyalty-button {
-    bottom: 70px;
-    right: 8px;
-    padding: 0 14px;
-    font-size: 10px;
-    min-width: 110px;
-    min-height: 40px;
-    border-radius: 24px;
-    letter-spacing: 0.4px;
-  }
-  
   .whatsapp-button {
-    right: 8px;
-    width: 45px;
-    height: 45px;
-    
+    width: 40px;
+    height: 40px;
+
     img {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
     }
   }
-
-  .floating-fabs {
-    bottom: 10px;
-    right: 8px;
-    gap: 6px;
-  }
-
-  .alliance-cta {
-    min-width: 200px;
-    max-width: 220px;
-    padding: 10px 36px 10px 12px;
-    font-size: 0.9rem;
-  }
-
-  .alliance-fab {
-    width: 45px;
-    height: 45px;
-  }
-
-  .alliance-fab svg {
-    width: 22px;
-    height: 22px;
-  }
 }
+
+
 
 /* Floating Buttons Animation */
 .floating-fabs {
@@ -608,6 +434,11 @@ p {
   gap: 12px;
   z-index: 9999;
   animation: fabsFadeIn 0.6s ease-out;
+}
+
+.floating-fabs .alliance-cta {
+  width: auto;
+  max-width: min(320px, 92vw);
 }
 
 .floating-fabs .whatsapp-button {

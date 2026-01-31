@@ -2,7 +2,9 @@ import { ApplicationConfig } from '@angular/core';
 import {
   provideRouter,
   withEnabledBlockingInitialNavigation,
-  withRouterConfig
+  withRouterConfig,
+  withInMemoryScrolling,
+  withViewTransitions
 } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -16,7 +18,12 @@ export const appConfig: ApplicationConfig = {
       withEnabledBlockingInitialNavigation(),
       withRouterConfig({
         onSameUrlNavigation: 'reload'
-      })
+      }),
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'enabled', // Activado para que al entrar a nueva página vaya al inicio, y al volver restaure
+        anchorScrolling: 'enabled'
+      }),
+      withViewTransitions()
     ),
     provideClientHydration(),
     provideAnimations()

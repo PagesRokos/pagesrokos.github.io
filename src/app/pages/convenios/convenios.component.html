@@ -1,25 +1,15 @@
 <section id="convenios" class="seccion convenios-section">
+  <!-- Botón Volver -->
+  <button class="btn-volver" (click)="volver()" aria-label="Volver a la página anterior">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </button>
+
   <h2>Alianzas / Club de Socios Rokos Barber Club</h2>
-  
-  <div class="intro-box">
-    <div class="titulo-destacado">
-      <span class="icono-estrella"></span>
-      <h3>Ser parte de nuestro club, tiene beneficios</h3>
-      <span class="icono-estrella"></span>
-    </div>
-    <p class="descripcion">
-      En Rokos Barber Club contamos con alianzas con empresas, centro de estudios y clubes, 
-      para que disfrutes de descuentos y beneficios especiales.
-    </p>
-    <div class="identificacion">
-      <span class="icono-tarjeta">🎫</span>
-      <span>Solo debes identificarte con tu tarjeta de socio</span>
-    </div>
-  </div>
 
-
-
-  <div class="convenios-container">
+  <!-- Lista de Convenios -->
+  <div id="lista-convenios" class="convenios-container">
     <div class="convenio-item" *ngFor="let convenio of convenios">
       <div class="logo-circulo">
         <img [src]="convenio.logo" [alt]="convenio.nombre">
@@ -31,4 +21,14 @@
       </a>
     </div>
   </div>
+
+  <!-- Sección "¿Tienes un negocio?" -->
+  <div class="negocio-box">
+    <h3>¿Tienes un negocio?</h3>
+    <p>Súmate a nuestra red de alianzas.</p>
+    <a href="mailto:contacto@rokosbarberclub.com?subject=Propuesta de Alianza" class="btn-escribenos">Escríbenos</a>
+  </div>
+
+  <!-- El botón flotante ahora se muestra desde app.component.html -->
+
 </section>

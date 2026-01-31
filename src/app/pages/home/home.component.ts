@@ -7,11 +7,12 @@ import { QuienesComponent } from "../sobreNosotros/quienes.component";
 import { UbicacionComponent } from "../ubicacion/ubicacion.component";
 import { ContactoComponent } from "../contacto/contacto.component";
 import { ConveniosComponent } from "../convenios/convenios.component";
+import { AlianzasHomeComponent } from "./components/alianzas-home/alianzas-home.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MarcasComponent, ServiciosComponent, InicioComponent, QuienesComponent, UbicacionComponent, ContactoComponent, ConveniosComponent], // incluye el componente aquí
+  imports: [CommonModule, MarcasComponent, ServiciosComponent, InicioComponent, QuienesComponent, UbicacionComponent, ContactoComponent, ConveniosComponent, AlianzasHomeComponent], // incluye el componente aquí
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })

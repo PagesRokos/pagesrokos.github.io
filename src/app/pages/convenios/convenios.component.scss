@@ -2,22 +2,89 @@
 .convenios-section {
   background-color: #0a0a0a;
   color: #fff;
-  padding: 5rem 2rem;
+  padding: 8rem 2rem 5rem;
   text-align: center;
-  background-image: 
-    linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)),
-    url('/assets/madera1.jpg');
+
   background-position: center;
   background-attachment: fixed;
+  min-height: 100vh;
+  animation: fadeIn 0.6s ease-in-out;
+  position: relative;
+
+  // Botón Volver - Diseño moderno integrado
+  .btn-volver {
+    position: fixed;
+    top: calc(98px + env(safe-area-inset-top));
+    left: max(16px, env(safe-area-inset-left));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: rgba(26, 26, 26, 0.95);
+    color: #ffd600;
+    border: 1.5px solid rgba(255, 214, 0, 0.3);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.5px;
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+    svg {
+      transition: transform 0.3s ease;
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      background: linear-gradient(135deg, #ffd600 0%, #ffed4e 100%);
+      color: #000;
+      border-color: #ffd600;
+      transform: translateX(-5px);
+      box-shadow: 0 6px 20px rgba(255, 214, 0, 0.4);
+
+      svg {
+        transform: translateX(-3px);
+      }
+    }
+
+    &:active {
+      transform: translateX(-7px) scale(0.95);
+    }
+  }
 
   h2 {
     font-size: clamp(2rem, 5vw, 3rem);
     color: #fff;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 3px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  // Identificación fuera del marco
+  .identificacion-superior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-bottom: 2rem;
+
+    .icono-tarjeta {
+      font-size: 1.6rem;
+    }
+
+    span:last-child {
+      font-size: clamp(1rem, 1.3vw, 1.2rem);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
   }
 
   .intro-box {
@@ -60,25 +127,30 @@
       text-align: center;
     }
 
-    .identificacion {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.7rem;
-      padding: 1rem 1.5rem;
-      background-color: rgba(255, 214, 0, 0.15);
-      border-radius: 10px;
-      border: 1px solid rgba(255, 214, 0, 0.4);
+    // Botón Ver Alianzas
+    .boton-ver-alianzas {
+      text-align: center;
+      margin-top: 1.5rem;
 
-      .icono-tarjeta {
-        font-size: 1.4rem;
-      }
+      .btn-alianzas {
+        display: inline-block;
+        padding: 0.9rem 2rem;
+        background-color: #ffd600;
+        color: #000;
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1rem;
+        box-shadow: 0 4px 15px rgba(255, 214, 0, 0.3);
 
-      span:last-child {
-        font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-        color: #fff;
-        font-weight: 600;
-        letter-spacing: 0.5px;
+        &:hover {
+          background-color: #ffb700;
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(255, 214, 0, 0.5);
+        }
       }
     }
   }
@@ -188,12 +260,207 @@
       box-shadow: 0 4px 12px rgba(255, 214, 0, 0.4);
     }
   }
+
+  // Sección "¿Tienes un negocio?"
+  .negocio-box {
+    max-width: 600px;
+    margin: 4rem auto 0;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 214, 0, 0.1) 0%, rgba(44, 44, 44, 0.3) 100%);
+    border: 2px solid rgba(255, 214, 0, 0.4);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    text-align: center;
+
+    h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: #ffd600;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      color: #e8e8e8;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .btn-escribenos {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      background-color: #ffd600;
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1rem;
+      box-shadow: 0 4px 15px rgba(255, 214, 0, 0.3);
+
+      &:hover {
+        background-color: #ffb700;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 214, 0, 0.5);
+      }
+    }
+  }
+
+  // Popup Flotante "Si quieres ser alianza"
+  .alliance-cta {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 9999;
+    
+    // Transición para cuando cambia de tamaño/posición
+    transition: all 0.3s ease;
+
+    // Cuando NO está minimizado (se ve la tarjeta)
+    &:not(.is-minimized) {
+      background-color: #1a1a1a;
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      width: 280px;
+      border: 1px solid #333;
+      animation: slideInUp 0.5s ease-out;
+      text-align: left;
+    }
+
+    // Cuando SÍ está minimizado (se ve solo el botón redondo)
+    &.is-minimized {
+        width: auto;
+        padding: 0;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+        
+        .cta-close { display: none; } /* Ocultamos la X en modo mini */
+    }
+
+    .cta-close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        background: none;
+        border: none;
+        color: #999;
+        font-size: 1.5rem;
+        cursor: pointer;
+        line-height: 1;
+        padding: 0;
+        transition: color 0.3s;
+        
+        &:hover { color: #fff; }
+    }
+
+    .cta-header {
+      position: absolute;
+      top: 5px;
+      right: 35px; // A la izquierda de cerrar
+    }
+
+    .btn-minimize {
+      background: none;
+      border: none;
+      color: #999;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 0 5px;
+      transform: translateY(-5px); // Ajuste visual para el guion bajo
+      &:hover { color: #fff; }
+    }
+
+    .cta-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .cta-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .cta-sub {
+      color: #ffd600; /* Amarillo Rokos */
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-button {
+      background-color: #ffd600;
+      color: #000;
+      text-align: center;
+      padding: 0.7rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 0.3s, transform 0.2s;
+      font-size: 0.95rem;
+
+      &:hover { 
+        background-color: #ffb700; 
+        transform: translateY(-2px);
+      }
+    }
+
+    // Estilos del botón flotante (FAB) cuando está minimizado
+    .alliance-fab {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #1a1a1a;
+      border: 2px solid #ffd600;
+      color: #ffd600;
+      box-shadow: 0 4px 15px rgba(255, 214, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.8rem;
+      
+      // Animación pop igual a WhatsApp
+      opacity: 0;
+      animation: fabPop 0.55s cubic-bezier(.25,.8,.25,1) .15s forwards;
+      
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      
+      &:hover {
+        transform: scale(1.1);
+        background-color: #2a2a2a;
+        box-shadow: 0 6px 20px rgba(255, 214, 0, 0.4);
+      }
+    }
+  }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 /* RESPONSIVE */
 @media (max-width: 992px) {
   .convenios-section {
-    padding: 4rem 1.5rem;
+    padding: 7rem 1.5rem 4rem;
+
+    .btn-volver {
+      top: calc(92px + env(safe-area-inset-top));
+      left: max(14px, env(safe-area-inset-left));
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
     
     .convenios-container {
       grid-template-columns: repeat(2, 1fr);
@@ -214,9 +481,33 @@
 @media (max-width: 768px) {
   .convenios-section {
     background-attachment: scroll;
+    padding: 6.5rem 1.5rem 4rem;
     
     h2 {
       letter-spacing: 2px;
+    }
+
+    .btn-volver {
+      top: calc(88px + env(safe-area-inset-top));
+      left: max(12px, env(safe-area-inset-left));
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      gap: 0.3rem;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .identificacion-superior {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+
+      .icono-tarjeta {
+        font-size: 1.4rem;
+      }
     }
 
     .intro-box {
@@ -231,12 +522,30 @@
         }
       }
     }
+
+    .negocio-box {
+      margin-top: 3rem;
+      padding: 2rem 1.5rem;
+    }
   }
 }
 
 @media (max-width: 576px) {
   .convenios-section {
-    padding: 3rem 1rem;
+    padding: 6rem 1rem 3rem;
+
+    .btn-volver {
+      top: calc(411px + env(safe-area-inset-top));
+      left: max(10px, env(safe-area-inset-left));
+      padding: 0.45rem 0.9rem;
+      font-size: 0.75rem;
+      gap: 0.25rem;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
     
     .convenios-container {
       grid-template-columns: 1fr;
@@ -256,6 +565,20 @@
       margin: 2rem 0 1.5rem;
     }
 
+    .identificacion-superior {
+      flex-direction: column;
+      gap: 0.3rem;
+
+      .icono-tarjeta {
+        font-size: 1.3rem;
+      }
+
+      span:last-child {
+        font-size: 0.95rem;
+        text-align: center;
+      }
+    }
+
     .intro-box {
       padding: 1.5rem 1rem;
 
@@ -267,11 +590,23 @@
           font-size: 1rem;
         }
       }
+    }
 
-      .identificacion {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.8rem 1rem;
+    .negocio-box {
+      margin-top: 2.5rem;
+      padding: 1.5rem 1rem;
+
+      h3 {
+        margin-bottom: 0.8rem;
+      }
+
+      p {
+        margin-bottom: 1.2rem;
+      }
+
+      .btn-escribenos {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
       }
     }
   }
@@ -285,5 +620,16 @@
   50% {
     opacity: 0.7;
     transform: scale(1.1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
