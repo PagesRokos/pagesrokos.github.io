@@ -54,8 +54,6 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('[DEBUG] AppComponent ngOnInit - URL inicial:', this.router.url);
-    
     // Detectar cambios de página
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -63,24 +61,18 @@ export class AppComponent implements OnInit {
       const url = event.url;
       const isAlianzasPage = url === '/alianzas' || url.startsWith('/alianzas');
       
-      console.log('[DEBUG] NavigationEnd - URL:', url, 'isAlianzasPage:', isAlianzasPage);
-      
       // Limpiar temporizador anterior si existe
       if (this.alianzasPageTimer) {
-        console.log('[DEBUG] Limpiando timer anterior');
         clearTimeout(this.alianzasPageTimer);
         this.alianzasPageTimer = null;
       }
       
       // Ocultar inmediatamente
       this.showAllianceCta = false;
-      console.log('[DEBUG] showAllianceCta establecido a false');
       
       // Si estamos en la página de alianzas, mostrar después de 2.5 segundos
       if (isAlianzasPage && isPlatformBrowser(this.platformId)) {
-        console.log('[DEBUG] Iniciando timer de 2.5 segundos para mostrar botón');
         this.alianzasPageTimer = setTimeout(() => {
-          console.log('[DEBUG] ¡Timer completado! Mostrando botón de alianzas');
           this.showAllianceCta = true;
         }, 2500);
       }
@@ -91,12 +83,8 @@ export class AppComponent implements OnInit {
       const currentUrl = this.router.url;
       const isAlianzasPage = currentUrl === '/alianzas' || currentUrl.startsWith('/alianzas');
       
-      console.log('[DEBUG] Verificación inicial - URL:', currentUrl, 'isAlianzasPage:', isAlianzasPage);
-      
       if (isAlianzasPage) {
-        console.log('[DEBUG] Página inicial es alianzas - Iniciando timer de 2.5 segundos');
         this.alianzasPageTimer = setTimeout(() => {
-          console.log('[DEBUG] ¡Timer inicial completado! Mostrando botón de alianzas');
           this.showAllianceCta = true;
         }, 2500);
       }
@@ -109,12 +97,10 @@ export class AppComponent implements OnInit {
   }
 
   onPopupOpened() { 
-    console.log('[DEBUG] Popup abierto - ocultando botones flotantes');
     this.showFloating = false;
   }
   
   onPopupClosed() { 
-    console.log('[DEBUG] Popup cerrado - mostrando botones flotantes');
     this.showFloating = true;
   }
 
