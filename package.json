@@ -4,7 +4,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --base-href /pagesrokos.github.io/",
+    "build:prod": "ng build --configuration production --base-href /",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:rokos-barber-club": "node dist/rokos-barber-club/server/server.mjs",
